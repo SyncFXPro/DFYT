@@ -174,36 +174,7 @@ async def download_v2(request: DownloadRequest):
                     pass  # Directory not empty or other error, ignore
 
 
-"""
-Depricated, use /download/v2 instead.
 
-@app.post("/download")
-async def download_endpoint(request: DownloadRequest):
-    request_id = str(uuid.uuid4())
-    
-    try:
-        filepath, filename = await run_in_threadpool(
-            download_logic, 
-            request.url, 
-            request.type, 
-            request_id
-        )
-        headers = {
-            "Content-Disposition": f'attachment; filename="{filename}"',
-            "X-Filename": filename,
-            "Access-Control-Expose-Headers": "Content-Disposition, X-Filename"
-        }
-        return FileResponse(
-            path=filepath, 
-            filename=filename, # fallback
-            media_type='application/octet-stream',
-            headers=headers
-        )
-    except Exception as e:
-        print(f"Server Error: {e}") # Log to server console
-        raise HTTPException(status_code=400, detail=str(e))
-
-"""
 
 def download_test():
     url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"

@@ -108,3 +108,4 @@ After setting up, test by:
 - The server will open the HTML file in your browser automatically
 - To stop the server, you'll need to end the Python process or use Task Manager
 
+
